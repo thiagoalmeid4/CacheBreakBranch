@@ -22,3 +22,25 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+# Java build files
+bin/
+target/
+build/
+classes/
+*.class
+
+# IDE files
+.idea/
+*.iml
+*.ipr
+*.iws
+*.classpath
+*.project
+
+# Logs and databases
+*.log
+*.sqlite
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
