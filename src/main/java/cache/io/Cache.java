@@ -34,17 +34,17 @@ public class Cache {
         em.getTransaction().commit();
     }
     
-    public Object get(Object key) throws Exception{
+    public Object get(Object key) throws CacheException{
         EntityManager em = getConnection();
         DataCache dc = em.find(DataCache.class, nameCache);
         if(dc!=null && dc.getDatas()!=null){
             return dc.getDatas().get(key);
         }else{
-            throw new Exception("Informação em cache não encontrado");
+            throw new CacheException();
         }
     }
     
-    public void clean(Object key) throws Exception{
+    public void clean(Object key) throws CacheException{
         EntityManager em = getConnection();
         DataCache dc = em.find(DataCache.class, nameCache);
         if(dc!=null && dc.getDatas()!=null){
@@ -53,7 +53,7 @@ public class Cache {
             em.merge(dc);
             em.getTransaction().commit();
         }else{
-            throw new Exception("Informação em cache não encontrado");
+            throw new CacheException();
         }
     }
 }
