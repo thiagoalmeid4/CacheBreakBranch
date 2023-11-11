@@ -12,9 +12,9 @@ import javax.persistence.Persistence;
  */
 public class Cache {
     
-    private final String nameCache = "v@sc0-c@ch3";
+    private static final String nameCache = "v@sc0-c@ch3";
     
-    private EntityManager getConnection() {
+    private static EntityManager getConnection() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("cacheBreakBranch");
         return emf.createEntityManager();
     }
