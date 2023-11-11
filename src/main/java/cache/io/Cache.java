@@ -19,7 +19,7 @@ public class Cache {
         return emf.createEntityManager();
     }
        
-    public void put(Object key, Object value){
+    public static void put(Object key, Object value){
         EntityManager em = getConnection();
         DataCache dc = em.find(DataCache.class, nameCache);
         em.getTransaction().begin();
@@ -34,7 +34,7 @@ public class Cache {
         em.getTransaction().commit();
     }
     
-    public Object get(Object key) throws Exception{
+    public static Object get(Object key) throws Exception{
         EntityManager em = getConnection();
         DataCache dc = em.find(DataCache.class, nameCache);
         if(dc!=null && dc.getDatas()!=null){
@@ -44,7 +44,7 @@ public class Cache {
         }
     }
     
-    public void clean(Object key) throws Exception{
+    public static void clean(Object key) throws Exception{
         EntityManager em = getConnection();
         DataCache dc = em.find(DataCache.class, nameCache);
         if(dc!=null && dc.getDatas()!=null){
